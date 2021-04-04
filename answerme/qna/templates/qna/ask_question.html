@@ -1,0 +1,14 @@
+{% extends 'qna/generic.html' %}
+
+{% block content %}
+<h1>Please post your question here</h1>
+{% if form.errors %} {{form.errors}} {% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.question_text }}
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'qna/generic.html' %}
+
+{% block content %}
+<h1>All Questions</h1>
+{% for question in latest_question_list %}
+<div class="mydiv card">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{{ question.get_absolute_url }}">{{ question.question_text }}</a></h5>
+        <div class="small">
+            <span class="card-text">- <b>{% if question.asked_by %}{{ question.asked_by }}{% else %}Anonymous{% endif %}</b> on {{question.posted_on}}</span>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

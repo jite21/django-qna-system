@@ -1,0 +1,26 @@
+{% extends 'qna/generic.html' %}
+
+{% block content %}
+
+<div style="display:inline;">
+    <a href="{{ answer.question.get_absolute_url }}"><h1>{{answer.question.question_text}}</h1></a>
+</div>
+<div class="mydiv card">
+    <div class="card-body">
+        <h6 class="card-title">{{answer.answer_text}}</h6>
+        <div class="small">
+            - <b>{% if answer.answered_by %}{{ answer.answered_by }}{% else %}Anonymous{% endif %}</b> | {{answer.posted_on|date:"d M, Y"}}
+        </div>
+        <div class="small">
+            {% if user.is_authenticated and user == answer.answered_by %}
+                <a href="" class="card-link"><span>&star;</span> {{answer.stars}}</a>
+                <a href="{{ answer.get_update_url }}" class="card-link">Update</a>
+                <a href="{{ answer.get_delete_url }}" class="card-link">Delete</a>
+            {% else %}
+                <span class="card-link">&star;</span> {{answer.stars}}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.small {
+    font-size: small;
+}
+
+.mydiv {
+    margin-left: 20px;
+    margin-top: 5px;
+}
